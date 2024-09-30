@@ -16,12 +16,12 @@ def create_movie_session(
 
 
 def get_movies_sessions(session_date: str = None) -> QuerySet[MovieSession]:
-    manager = MovieSession.objects
+    queryset = MovieSession.objects.all()
 
     if session_date:
-        return manager.filter(show_time__date=session_date)
+        return queryset.filter(show_time__date=session_date)
 
-    return manager.all()
+    return queryset.all()
 
 
 def get_movie_session_by_id(movie_session_id: int) -> MovieSession:
